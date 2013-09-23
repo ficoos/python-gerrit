@@ -8,11 +8,11 @@ How to use
 ----------
 * Connect to a server:
 ```python
-pkey = paramiko.RSAKey(filename="/home/foo/.ssh/id_rsa.pub")
-username = "Bob"
-host = "example.com"
-port = 29418  # Default Gerrit ssh port
-g = Gerrit(host, port, username, pkey)
+    pkey = paramiko.RSAKey(filename="/home/foo/.ssh/id_rsa.pub")
+    username = "Bob"
+    host = "example.com"
+    port = 29418  # Default Gerrit ssh port
+    g = Gerrit(host, port, username, pkey)
 ```
 * Query for changes:
 ```python
