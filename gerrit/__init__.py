@@ -65,7 +65,7 @@ class Gerrit(object):
 
         self._client = client
 
-    def query(self, query, limit=None, options=[]):
+    def query(self, query, limit=None, options=[], resume_sortkey=None):
         cmd = ["gerrit", "query", "--format", "json"]
         for option in options:
             cmd.append(option)
@@ -73,6 +73,9 @@ class Gerrit(object):
         cmd.append(query)
         if limit is not None:
             cmd.append("limit:%d" % limit)
+
+        if resume_sortkey is not None:
+            cmd.append("resume_sortkey:%s" % resume_sortkey)
 
         cmdline = list2cmdline(cmd)
 
