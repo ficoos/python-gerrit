@@ -43,6 +43,9 @@ class ResponseIter(object):
         self.close()
         raise StopIteration()
 
+    def __next__(self):
+        return self.next()
+
     def close(self):
         self._stdout.close()
         self._stderr.close()
